@@ -1,4 +1,4 @@
-import css from "../App/App.module.css";
+import css from '../App/App.module.css'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         {/* Кнопка створення нотатки */}
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
