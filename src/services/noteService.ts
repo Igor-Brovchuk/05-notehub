@@ -14,7 +14,7 @@ const notehubApi = axios.create({
 })
 
 interface FetchNotesResponse {
-  notes: Note[];
+  notes: Note[]
   totalPages: number
 }
 
@@ -24,7 +24,7 @@ interface FetchNotesParams {
   query?: string
 }
 
-interface CreateNoteParams {
+export interface CreateNoteParams {
   title: string
   content: string
   tag: NoteTag
@@ -33,7 +33,7 @@ interface CreateNoteParams {
 export const fetchNotes = async ({
   page = 1,
   perPage = 12,
-  query = '', 
+  query = '',
 }: FetchNotesParams): Promise<FetchNotesResponse> => {
   const response = await notehubApi.get<FetchNotesResponse>('/notes', {
     params: {
@@ -45,9 +45,7 @@ export const fetchNotes = async ({
   return response.data
 }
 
-export const createNote = async (
-  newNote: CreateNoteParams
-): Promise<Note> => {
+export const createNote = async (newNote: CreateNoteParams): Promise<Note> => {
   const response = await notehubApi.post<Note>('/notes', newNote)
 
   return response.data
@@ -58,4 +56,3 @@ export const deleteNote = async (id: string): Promise<Note> => {
 
   return response.data
 }
-
